@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assessment Feedback Report</title>
+
+    <style>
+      @page {
+        size: A4;
+        margin: 40mm 20mm;
+      }
+
+      body {
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        color: #222;
+        margin: 0;
+        line-height: 1.6;
+        background: white;
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: flex;
+        gap: 40px;
+        max-width: 900px;
+        width: 90%;
+        /* margin: auto; */
+      }
+
+      .left-column {
+        flex: 0 0 180px;
+        color: #999;
+        font-size: 12px;
+      }
+
+      .left-column .label {
+        font-size: 11px;
+        margin-bottom: 2px;
+      }
+
+      .left-column .value {
+        color: #222;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .left-column .description {
+        font-style: italic;
+        line-height: 1.5;
+        margin-top: 20px;
+      }
+
+      .right-column {
+        flex: 1;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+        color: #999;
+        font-size: 13px;
+        font-weight: 400;
+      }
+
+      p {
+        page-break-inside: avoid;
+        margin: 0 0 10px 0;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .section {
+        margin-bottom: 25px;
+      }
+
+      .brand {
+        text-align: center;
+        margin-top: 60px;
+        color: #999;
+        font-size: 11px;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left-column">
+        <div class="label">Taken on</div>
+        <div class="value">{{assessment.assessment_date}}</div>
+
+        <div class="label">For</div>
+        <div class="value">{{designer.name}}</div>
+
+        <div class="description">
+          This feedback is based on what you demonstrated during your recent
+          assessment conversation. It is intended to support reflection and
+          growth, not to evaluate or rank you.
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="section">
+          <h2>Summary</h2>
+          <p>{{sections.overall_capability_summary.text}}</p>
+        </div>
+
+        <div class="section">
+          <h2>Observable strengths</h2>
+          {{#each sections.observable_strengths.items}}
+          <p>{{this}}</p>
+          {{/each}}
+        </div>
+
+        <div class="section">
+          <h2>Areas where stronger evidence would help</h2>
+          {{#each sections.areas_where_stronger_evidence_would_help.items}}
+          <p>{{this}}</p>
+          {{/each}}
+        </div>
+
+        <div class="section">
+          <h2>Current visibility guidance</h2>
+          <p>{{sections.current_visibility_guidance.text}}</p>
+        </div>
+
+        <div class="section">
+          <h2>High-Impact next evidence</h2>
+          {{#each sections.high_impact_next_evidence.items}}
+          <p>{{this}}</p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

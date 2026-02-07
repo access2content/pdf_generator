@@ -1,0 +1,56 @@
+{
+  "feedback_type": "designer_developmental_feedback",
+  "version": "v1",
+  "generated_on": "2026-01-28",
+  "designer": {
+    "name": "Raavi Sehdev",
+    "email": "raavi.sehdev29@gmail.com",
+    "location": "Jalandhar, Punjab",
+    "role": "Product Designer"
+  },
+  "assessment": {
+    "assessment_date": "Jan 20,2026",
+    "assessment_format": "structured_one_way",
+    "requested_by_designer": true
+  },
+  "disclaimer": "This feedback is based on what you demonstrated during your recent assessment conversation. It is intended to support reflection and growth, not to evaluate or rank you.",
+  "sections": {
+    "overall_capability_summary": {
+      "text": "You demonstrate solid product design capability with experience owning problems end to end, from early research to iteration and handover. You approach problems by identifying user friction, forming clear problem statements, and structuring solutions around habit formation, clarity, and usability. Your decision-making reflects a strong inclination toward systematic thinking, prioritisation based on impact versus effort, and designing flows that reduce cognitive load while supporting long-term user engagement."
+    },
+    "observable_strengths": {
+      "items": [
+        "You consistently structure complex problems into clear flows by breaking them into logical steps and stages.",
+        "You tend to ground feature decisions in user research patterns and behavioral insights.",
+        "You consistently think about habit formation and long-term engagement when designing experiences.",
+        "You tend to prioritise features using impact versus effort trade-offs rather than adding complexity.",
+        "You consistently consider edge cases such as error correction, undo actions, and stock-related alerts."
+      ]
+    },
+    "areas_where_stronger_evidence_would_help": {
+      "items": [
+        "Showing clearer examples of how design decisions were validated with quantitative outcomes would strengthen confidence in results.",
+        "Sharing instances where you influenced product or engineering direction beyond proposing solutions would add depth to collaboration evidence.",
+        "Demonstrating how trade-offs were navigated under constraints such as timelines or business pressure would increase decision visibility."
+      ]
+    },
+    "current_visibility_guidance": {
+      "text": "Based on what you demonstrated, your profile is currently strongest in environments that value structured problem-solving, user-centered research, habit-forming experiences, and clearly defined workflows. Contexts that rely heavily on advanced data experimentation, large cross-team orchestration, or frequent executive alignment would benefit from additional surfaced evidence."
+    },
+    "high_impact_next_evidence": {
+      "items": [
+        "Add a case where product decisions were evaluated using metrics, experiments, or measurable outcomes.",
+        "Capture an example where you collaborated through disagreement or aligned multiple functions toward a shared solution.",
+        "Document a situation where business constraints influenced prioritisation and explain how the trade-off was resolved."
+      ]
+    },
+    "closing_note": {
+      "text": "This feedback reflects what surfaced during this assessment, not your full capability. As you surface additional evidence over time, how your profile is interpreted will continue to evolve."
+    }
+  },
+  "visibility_rules": {
+    "shareable_with_designer": true,
+    "shareable_with_employer": false,
+    "editable_by_designer": false
+  }
+}
