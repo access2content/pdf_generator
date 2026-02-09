@@ -2,23 +2,26 @@ const { BrowserWindow } = require("electron");
 const fs = require("fs");
 const handlebars = require("handlebars");
 const path = require("path");
+const templateManager = require("./templateManager");
 
 async function generatePDF(data, filePath) {
-  // Compile main template
-  const template = fs.readFileSync(
-    path.join(__dirname, "template", "main.html"),
-    "utf8",
-  );
+  //  1: Get current template directory from template manager
+  const templateDir = templateManager.getTemplatePath();
+  console.log("Generating PDF using templates from:", templateDir);
+
+  //  2: Compile main template
+  const template = fs.readFileSync(path.join(templateDir, "main.html"), "utf8");
   const html = handlebars.compile(template)(data);
 
   // Load header/footer templates
+  // TODO: Verify if Header and Footer exists. If required, do template compilation
   const headerTemplate = fs.readFileSync(
-    path.join(__dirname, "template", "header.html"),
+    path.join(templateDir, "header.html"),
     "utf8",
   );
 
   const footerTemplate = fs.readFileSync(
-    path.join(__dirname, "template", "footer.html"),
+    path.join(templateDir, "footer.html"),
     "utf8",
   );
 

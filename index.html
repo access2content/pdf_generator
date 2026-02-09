@@ -11,7 +11,8 @@
     <title>PDF Generator</title>
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
       * {
         box-sizing: border-box;
@@ -19,15 +20,47 @@
 
       body {
         margin: 0;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
         background: #090917;
-        background-image: radial-gradient(circle at 20% 50%, rgba(65, 54, 78, 0.4) 0%, transparent 50%),
-                          radial-gradient(circle at 80% 80%, rgba(63, 49, 77, 0.3) 0%, transparent 50%);
+        background-image:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(65, 54, 78, 0.4) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(63, 49, 77, 0.3) 0%,
+            transparent 50%
+          );
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         padding: 20px;
+        overflow: hidden;
+      }
+
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
       }
 
       .card {
@@ -36,8 +69,9 @@
         border: 1px solid rgba(65, 78, 98, 0.3);
         padding: 40px 48px;
         border-radius: 20px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                    0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        box-shadow:
+          0 25px 50px -12px rgba(0, 0, 0, 0.5),
+          0 10px 15px -3px rgba(0, 0, 0, 0.3);
         width: 580px;
         max-width: 90%;
         transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
@@ -45,8 +79,9 @@
 
       .card:hover {
         border-color: rgba(65, 78, 98, 0.5);
-        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6),
-                    0 15px 20px -3px rgba(0, 0, 0, 0.4);
+        box-shadow:
+          0 30px 60px -12px rgba(0, 0, 0, 0.6),
+          0 15px 20px -3px rgba(0, 0, 0, 0.4);
       }
 
       h2 {
@@ -54,8 +89,8 @@
         margin-bottom: 8px;
         font-weight: 700;
         font-size: 2rem;
-        color: #FCFCFC;
-        background: linear-gradient(135deg, #FCFCFC 0%, #B4B4B4 100%);
+        color: #fcfcfc;
+        background: linear-gradient(135deg, #fcfcfc 0%, #b4b4b4 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -64,7 +99,7 @@
       .subtitle {
         margin: 0 0 28px 0;
         font-size: 0.875rem;
-        color: #A4A4A4;
+        color: #a4a4a4;
         font-weight: 400;
       }
 
@@ -73,7 +108,7 @@
         margin-bottom: 10px;
         font-size: 0.875rem;
         font-weight: 500;
-        color: #B4B4B4;
+        color: #b4b4b4;
         letter-spacing: 0.01em;
       }
 
@@ -81,26 +116,34 @@
         width: 100%;
         resize: vertical;
         padding: 16px;
-        font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
+        font-family:
+          ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco,
+          Consolas, monospace;
         border-radius: 12px;
         border: 1px solid rgba(65, 78, 98, 0.4);
         background: rgba(15, 14, 26, 0.8);
-        color: #FCFCFC;
+        color: #fcfcfc;
         font-size: 14px;
         line-height: 1.6;
         transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+        max-height: 400px;
+        min-height: 200px;
       }
 
       textarea::placeholder {
         color: #637083;
+        font-size: 12px;
+        line-height: 1.4;
+        opacity: 0.7;
       }
 
       textarea:focus {
         outline: none;
         border-color: #606082;
         background: rgba(15, 14, 26, 1);
-        box-shadow: 0 0 0 3px rgba(96, 96, 130, 0.15),
-                    0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        box-shadow:
+          0 0 0 3px rgba(96, 96, 130, 0.15),
+          0 4px 6px -1px rgba(0, 0, 0, 0.2);
       }
 
       button {
@@ -109,35 +152,49 @@
         padding: 14px 24px;
         border: none;
         border-radius: 12px;
-        background: linear-gradient(135deg, #5c54ff 0%, #7a38ce 25%, #b840c0 50%, #d94e8c 75%, #fb671b 100%);
+        background: linear-gradient(
+          135deg,
+          #5c54ff 0%,
+          #7a38ce 25%,
+          #b840c0 50%,
+          #d94e8c 75%,
+          #fb671b 100%
+        );
         background-size: 200% 200%;
         color: white;
         font-size: 15px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
-        box-shadow: 0 4px 6px -1px rgba(92, 84, 255, 0.3),
-                    0 2px 4px -2px rgba(92, 84, 255, 0.2);
+        box-shadow:
+          0 4px 6px -1px rgba(92, 84, 255, 0.3),
+          0 2px 4px -2px rgba(92, 84, 255, 0.2);
         position: relative;
         overflow: hidden;
       }
 
       button::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transition: left 0.5s;
       }
 
       button:hover {
         background-position: 100% 0;
         transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(92, 84, 255, 0.4),
-                    0 4px 6px -4px rgba(92, 84, 255, 0.3);
+        box-shadow:
+          0 10px 15px -3px rgba(92, 84, 255, 0.4),
+          0 4px 6px -4px rgba(92, 84, 255, 0.3);
       }
 
       button:hover::before {
@@ -158,39 +215,817 @@
       #status {
         margin-top: 16px;
         font-size: 13px;
-        color: #A4A4A4;
+        color: #a4a4a4;
         text-align: center;
         min-height: 20px;
         transition: color 0.2s;
       }
 
       #status.success {
-        color: #40BF7F;
+        color: #40bf7f;
       }
 
       #status.error {
-        color: #FF9193;
+        color: #ff9193;
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background: rgba(20, 18, 30, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(65, 78, 98, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 24px;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        position: absolute;
+      }
+
+      .nav-left {
+        left: 24px;
+      }
+
+      .nav-right {
+        right: 24px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid rgba(65, 78, 98, 0.3);
+        background: rgba(30, 28, 40, 0.6);
+        color: #b4b4b4;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        padding: 0;
+      }
+
+      .icon-btn .material-symbols-outlined {
+        font-size: 20px;
+      }
+
+      .icon-btn:hover {
+        background: rgba(40, 38, 50, 0.8);
+        border-color: rgba(65, 78, 98, 0.5);
+        color: #fcfcfc;
+        transform: translateY(-1px);
+      }
+
+      .icon-btn:active {
+        transform: translateY(0);
+      }
+
+      .app-title {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fcfcfc;
+        background: linear-gradient(135deg, #fcfcfc 0%, #b4b4b4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        position: relative;
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 240px;
+        background: rgba(30, 28, 40, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(65, 78, 98, 0.4);
+        border-radius: 12px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+        z-index: 1001;
+      }
+
+      .dropdown-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-header {
+        padding: 12px 16px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #a4a4a4;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid rgba(65, 78, 98, 0.3);
+      }
+
+      .dropdown-item {
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        background: transparent;
+        color: #e0e0e0;
+        font-size: 14px;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+
+      .dropdown-item:hover {
+        background: rgba(65, 78, 98, 0.2);
+        color: #fcfcfc;
+      }
+
+      .dropdown-item svg {
+        flex-shrink: 0;
+        opacity: 0.7;
+      }
+
+      .dropdown-item.danger {
+        color: #ff9193;
+      }
+
+      .dropdown-item.danger:hover {
+        background: rgba(255, 145, 147, 0.1);
+        color: #ffb0b1;
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background: rgba(65, 78, 98, 0.3);
+        margin: 4px 0;
+      }
+
+      /* Content Wrapper */
+      .content-wrapper {
+        margin-top: 64px;
+        height: calc(100vh - 64px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow-y: auto;
+      }
+
+      /* Page System */
+      .page {
+        display: none;
+        width: 100%;
+        max-width: 580px;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Info Page */
+      .info-card {
+        max-width: 800px;
+        width: 90%;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        padding: 32px 40px;
+      }
+
+      .info-card::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .info-card::-webkit-scrollbar-track {
+        background: rgba(15, 14, 26, 0.5);
+        border-radius: 4px;
+      }
+
+      .info-card::-webkit-scrollbar-thumb {
+        background: rgba(65, 78, 98, 0.5);
+        border-radius: 4px;
+      }
+
+      .info-card::-webkit-scrollbar-thumb:hover {
+        background: rgba(65, 78, 98, 0.7);
+      }
+
+      .info-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .info-header h2 {
+        margin: 0;
+      }
+
+      .close-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid rgba(65, 78, 98, 0.3);
+        background: rgba(30, 28, 40, 0.6);
+        color: #b4b4b4;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        padding: 0;
+      }
+
+      .close-btn:hover {
+        background: rgba(255, 145, 147, 0.1);
+        border-color: #ff9193;
+        color: #ff9193;
+      }
+
+      .info-content {
+        color: #e0e0e0;
+      }
+
+      .info-section {
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(65, 78, 98, 0.2);
+      }
+
+      .info-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .info-section h3 {
+        margin: 0 0 12px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fcfcfc;
+      }
+
+      .info-section p {
+        margin: 0 0 12px 0;
+        line-height: 1.6;
+        color: #b4b4b4;
+      }
+
+      .info-section ul,
+      .info-section ol {
+        margin: 12px 0;
+        padding-left: 24px;
+        line-height: 1.8;
+        color: #b4b4b4;
+      }
+
+      .info-section li {
+        margin-bottom: 8px;
+      }
+
+      .info-section li strong {
+        color: #e0e0e0;
+      }
+
+      .info-note {
+        background: rgba(92, 84, 255, 0.1);
+        border-left: 3px solid #5c54ff;
+        padding: 12px 16px;
+        border-radius: 6px;
+        margin-top: 12px;
+      }
+
+      .code-block {
+        background: rgba(15, 14, 26, 0.8);
+        border: 1px solid rgba(65, 78, 98, 0.4);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-family: ui-monospace, "Cascadia Code", monospace;
+        font-size: 13px;
+        color: #40bf7f;
+        word-break: break-all;
+        margin: 12px 0;
+      }
+
+      .code-block.clickable {
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .code-block.clickable:hover {
+        background: rgba(20, 18, 32, 0.9);
+        border-color: rgba(92, 84, 255, 0.5);
+      }
+
+      .code-block.clickable:active {
+        transform: scale(0.99);
+      }
+
+      .secondary-btn {
+        padding: 10px 16px;
+        border: 1px solid rgba(65, 78, 98, 0.4);
+        border-radius: 8px;
+        background: rgba(30, 28, 40, 0.6);
+        color: #e0e0e0;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s;
+        font-family: inherit;
+        margin-top: 8px;
+      }
+
+      .secondary-btn:hover {
+        background: rgba(40, 38, 50, 0.8);
+        border-color: rgba(65, 78, 98, 0.6);
+        color: #fcfcfc;
+        transform: translateY(-1px);
+      }
+
+      .version-info {
+        text-align: center;
+        padding-top: 12px;
+      }
+
+      .version-info p {
+        font-size: 13px;
+        margin: 4px 0;
+      }
+
+      /* Modal */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        animation: fadeIn 0.2s ease-in-out;
+      }
+
+      .modal.show {
+        display: flex;
+      }
+
+      .modal-content {
+        background: rgba(30, 28, 40, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(65, 78, 98, 0.4);
+        border-radius: 16px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        border-bottom: 1px solid rgba(65, 78, 98, 0.3);
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #fcfcfc;
+      }
+
+      .modal-body {
+        padding: 24px;
+      }
+
+      .modal-label {
+        font-size: 14px;
+        color: #b4b4b4;
+        margin-bottom: 8px;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .modal-actions .secondary-btn {
+        flex: 1;
+        justify-content: center;
+        margin-top: 0;
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      /* JSON Input Label */
+      .json-label {
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #b4b4b4;
+        letter-spacing: 0.01em;
+      }
+
+      /* JSON Input Buttons */
+      .json-buttons {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 16px;
+      }
+
+      .json-btn {
+        padding: 8px 14px;
+        border: 1px solid rgba(65, 78, 98, 0.4);
+        border-radius: 8px;
+        background: rgba(30, 28, 40, 0.6);
+        color: #e0e0e0;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all 0.2s;
+        font-family: inherit;
+        white-space: nowrap;
+      }
+
+      .json-btn .material-symbols-outlined {
+        font-size: 18px;
+      }
+
+      .json-btn:hover {
+        background: rgba(40, 38, 50, 0.8);
+        border-color: rgba(65, 78, 98, 0.6);
+        color: #fcfcfc;
+        transform: translateY(-1px);
+      }
+
+      .json-btn:active {
+        transform: translateY(0);
+      }
+
+      .json-btn.primary {
+        background: linear-gradient(
+          135deg,
+          rgba(92, 84, 255, 0.6) 0%,
+          rgba(122, 56, 206, 0.6) 100%
+        );
+        border-color: rgba(92, 84, 255, 0.5);
+      }
+
+      .json-btn.primary:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(92, 84, 255, 0.8) 0%,
+          rgba(122, 56, 206, 0.8) 100%
+        );
+        border-color: rgba(92, 84, 255, 0.7);
+      }
+
+      .json-btn.danger {
+        color: #ff9193;
+      }
+
+      .json-btn.danger:hover {
+        background: rgba(255, 145, 147, 0.1);
+        border-color: #ff9193;
+        color: #ffb0b1;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 640px) {
+        .navbar {
+          padding: 0 16px;
+        }
+
+        .info-card {
+          padding: 24px 20px;
+        }
+
+        .modal-actions {
+          flex-direction: column;
+        }
+
+        .modal-actions .secondary-btn {
+          width: 100%;
+        }
+
+        .json-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .json-btn {
+          width: 100%;
+          font-size: 12px;
+          padding: 8px 10px;
+        }
       }
     </style>
   </head>
 
   <body>
-    <div class="card">
-      <h2>PDF Generator</h2>
-      <p class="subtitle">Transform your JSON data into beautiful PDFs</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <h1 class="app-title">Transform your JSON data into beautiful PDFs</h1>
+      <div class="nav-right">
+        <button class="icon-btn" id="infoBtn" title="Help & Information">
+          <span class="material-symbols-outlined">info</span>
+        </button>
+        <div class="dropdown">
+          <button class="icon-btn" id="settingsBtn" title="Settings">
+            <span class="material-symbols-outlined">settings</span>
+          </button>
 
-      <label for="jsonInput">JSON Input</label>
-      <textarea
-        id="jsonInput"
-        rows="12"
-        placeholder='{"title": "Sample Document", "content": "Your data here..."}'
-      ></textarea>
+          <!-- Settings Dropdown Menu -->
+          <div class="dropdown-menu" id="settingsMenu">
+            <div class="dropdown-header">Template Settings</div>
+            <button class="dropdown-item" id="viewTemplatePathBtn">
+              <span class="material-symbols-outlined">description</span>
+              View Template Path
+            </button>
+            <button class="dropdown-item" id="openTemplateFolderBtn">
+              <span class="material-symbols-outlined">folder_open</span>
+              Open Template Folder
+            </button>
+            <button class="dropdown-item" id="changeTemplateFolderBtn">
+              <span class="material-symbols-outlined">sync</span>
+              Change Template Folder
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item danger" id="resetTemplatesBtn">
+              <span class="material-symbols-outlined">refresh</span>
+              Reset to Defaults
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-      <button id="sendBtn">Generate PDF</button>
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT CONTAINER                      -->
+    <!-- ============================================ -->
+    <div class="content-wrapper">
+      <!-- Home Page (PDF Generator) -->
+      <div id="homePage" class="page active">
+        <div class="card">
+          <label for="jsonInput" class="json-label">Enter JSON data</label>
+          <textarea
+            id="jsonInput"
+            rows="12"
+            placeholder="Loading sample..."
+          ></textarea>
 
-      <p id="status"></p>
+          <div class="json-buttons">
+            <button
+              class="json-btn primary full-width"
+              id="loadSampleBtn"
+              title="Load sample JSON based on your templates"
+            >
+              <span class="material-symbols-outlined">file_copy</span>
+              Load Sample
+            </button>
+          </div>
+
+          <button id="sendBtn">Generate PDF</button>
+        </div>
+      </div>
+
+      <!-- Info/Help Page -->
+      <div id="infoPage" class="page">
+        <div class="card info-card">
+          <div class="info-header">
+            <h2>Help & Information</h2>
+            <button class="close-btn" id="closeInfoBtn">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <div class="info-content">
+            <section class="info-section">
+              <h3>📄 About PDF Generator</h3>
+              <p>
+                Transform your JSON data into professionally formatted PDF
+                documents using customizable templates.
+              </p>
+            </section>
+
+            <section class="info-section">
+              <h3>🚀 How to Use</h3>
+              <ol>
+                <li>
+                  <strong>Prepare your JSON data</strong> - Ensure it matches
+                  your template structure
+                </li>
+                <li>
+                  <strong>Paste JSON</strong> into the input field on the home
+                  page
+                </li>
+                <li>
+                  <strong>Click "Generate PDF"</strong> - Choose where to save
+                  your file
+                </li>
+                <li>
+                  <strong>Done!</strong> Your PDF will be created and saved
+                </li>
+              </ol>
+            </section>
+
+            <section class="info-section">
+              <h3>⚙️ Template Settings</h3>
+              <p>
+                Customize the appearance of your PDFs by managing templates:
+              </p>
+              <ul>
+                <li>
+                  <strong>View Template Path</strong> - See where your templates
+                  are stored
+                </li>
+                <li>
+                  <strong>Open Template Folder</strong> - Edit HTML/CSS
+                  templates directly
+                </li>
+                <li>
+                  <strong>Change Template Folder</strong> - Use templates from a
+                  different location
+                </li>
+                <li>
+                  <strong>Reset to Defaults</strong> - Restore original
+                  templates
+                </li>
+              </ul>
+            </section>
+
+            <section class="info-section">
+              <h3>📝 Template Customization</h3>
+              <p>
+                Templates are HTML files with embedded CSS. You can customize:
+              </p>
+              <ul>
+                <li>
+                  <strong>Colors</strong> - Change text, background, and accent
+                  colors
+                </li>
+                <li>
+                  <strong>Fonts</strong> - Use custom fonts (embed as base64)
+                </li>
+                <li>
+                  <strong>Layout</strong> - Modify spacing, margins, and
+                  structure
+                </li>
+                <li>
+                  <strong>Branding</strong> - Add logos and company information
+                </li>
+              </ul>
+              <p class="info-note">
+                💡 <strong>Tip:</strong> Changes to templates take effect
+                immediately on the next PDF generation.
+              </p>
+            </section>
+
+            <section class="info-section">
+              <h3>🛡️ Security & Privacy</h3>
+              <ul>
+                <li>All processing happens locally on your machine</li>
+                <li>No data is sent to external servers</li>
+                <li>Templates are stored in your user directory</li>
+                <li>You have full control over your data and templates</li>
+              </ul>
+            </section>
+
+            <section class="info-section">
+              <h3>📂 Template Location</h3>
+              <p>Your templates are stored at:</p>
+              <div class="code-block" id="templatePathDisplay">Loading...</div>
+              <button class="secondary-btn" id="openTemplateFromInfoBtn">
+                <span class="material-symbols-outlined">folder_open</span>
+                Open Template Folder
+              </button>
+            </section>
+
+            <section class="info-section">
+              <h3>❓ Troubleshooting</h3>
+              <ul>
+                <li>
+                  <strong>Invalid JSON error:</strong> Check your JSON syntax
+                  (use a validator)
+                </li>
+                <li>
+                  <strong>PDF not generating:</strong> Ensure templates exist in
+                  the template folder
+                </li>
+                <li>
+                  <strong>Fonts not showing:</strong> Embed fonts as base64 in
+                  templates
+                </li>
+                <li>
+                  <strong>Images missing:</strong> Use base64 data URIs for
+                  images
+                </li>
+              </ul>
+            </section>
+
+            <section class="info-section version-info">
+              <p><strong>Developer:</strong> Vivek Agrawal</p>
+              <p><strong>Email:</strong> access2content@gmail.com</p>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="renderer.js"></script>
+    <!-- Template Path Modal -->
+    <div class="modal" id="templatePathModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Current Template Location</h3>
+          <button class="close-btn" id="closeModalBtn">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-label">Templates are loaded from (click to copy):</p>
+          <div
+            class="code-block clickable"
+            id="modalTemplatePath"
+            title="Click to copy path"
+          >
+            Loading...
+          </div>
+          <div class="modal-actions">
+            <button class="secondary-btn" id="openFolderFromModalBtn">
+              <span class="material-symbols-outlined">folder_open</span>
+              Open Folder
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./renderer.js"></script>
   </body>
 </html>
